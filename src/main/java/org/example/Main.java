@@ -52,5 +52,28 @@ public class Main {
         //CONVERT VALUE USE CASE TO CONVERT ONE OBJECT TO OTHER WITH SAME TYPE
         Car2 car2 = objectMapper.convertValue(car, Car2.class);
         System.out.println(car2.getBrand());
+
+        //output
+//        Fiat
+//        {"color":"Black","brand":"Fiat"}
+//        color:Black
+//        brand:Fiat
+//        year:1970
+//        Black
+//         Red
+//        BMW
+//         FIAT
+//        Fiat
+
+        //Dependency to be used
+        /*
+            <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+    </dependencies>
+         */
     }
 }
