@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,9 +21,23 @@ public class Main {
         Car car = objectMapper.readValue(jsonString, Car.class);
         System.out.println(car.getBrand());
 
-        //WRITING THE OBJECT TO STRING
+        //WRITING THE OBJECT TO STRING OR JSON
         String s = objectMapper.writeValueAsString(car);
+
         System.out.println(s);
+
+
+        HashMap<String, Object> map1 = new HashMap<>();
+        //You can convert any Object.
+        String[] value1 = new String[]{"value11", "value12", "value13"};
+        String[] value2 = new String[]{"value21", "value22", "value23"};
+        map1.put("key1", value1);
+        map1.put("key2", value2);
+        map1.put("key3", "string1");
+        map1.put("key4", "string2");
+
+        String json = new ObjectMapper().writeValueAsString(map1);
+        System.out.println(json);
 
         //We can parse a STRING  JSON into a Java Map:
         Map<String, Object> map = objectMapper.readValue(jsonString, new TypeReference<Map<String, Object>>() {
